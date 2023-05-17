@@ -41,8 +41,8 @@ dot_array = [0,4]
 
 generated_points = 0
 def generate_points():
-    point_x = random.randint(0, 15) 
-    point_y = random.randint(0, 14) 
+    point_x = random.randint(0, max1) 
+    point_y = random.randint(0, max2) 
     point_array.append([point_x, point_y])
     print(point_array)
     array[point_x][point_y] = "🔻";
