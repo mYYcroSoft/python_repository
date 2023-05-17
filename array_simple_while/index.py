@@ -48,7 +48,7 @@ def generate_points():
     array[point_x][point_y] = "🔻";
     
 
-while not generated_points == 2:
+while not generated_points == 8:
     generate_points()
     generated_points += 1
  
