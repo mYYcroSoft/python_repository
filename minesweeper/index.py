@@ -90,7 +90,9 @@ def check_point():
                 score = score+1 
         
                 
-                
+def check_near_bomb():
+    if array[dot_array[1] + 2][dot_array[0]] == "🟪" or "🟨":
+        print("BOMBA")
 
 
 while not q == True:
@@ -102,24 +104,27 @@ while not q == True:
     action = input("[w,a,s,d] Zadejte akci:")
     
     if action == 'd':
+        check_near_bomb()
         array[dot_array[1]][dot_array[0]] = "⬛️"
         if not dot_array[0] == max_array[0]:
             dot_array[0] += 1
             check_point()
     if action == 'a':
+        check_near_bomb()
         array[dot_array[1]][dot_array[0]] = "⬛️"
         if not dot_array[0] == 0:
             dot_array[0] -= 1
             check_point()
 
     if action == 'w':
-
+        check_near_bomb()
         array[dot_array[1]][dot_array[0]] = "⬛️"
         if not dot_array[1] == 0:
             dot_array[1] -= 1
             check_point()
 
     if action == 's':
+        check_near_bomb()
         array[dot_array[1]][dot_array[0]] = "⬛️"
         if not dot_array[1] == max_array[1]:
             dot_array[1] += 1
