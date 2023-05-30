@@ -1,13 +1,13 @@
 import os
 
-main_word = 'ahhoooj jak je'
+main_word = input('Zadejte slovo: ')
 main_word_letters_list = list(main_word)
 word_spaces = 0
 
         
 
 print(word_spaces)
-max_try = 5
+max_try = int(input('Maximální počet pokusů: '))
 
 
 
