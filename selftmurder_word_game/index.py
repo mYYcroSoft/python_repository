@@ -18,6 +18,8 @@ player_tryes = 0
 
 word_string = []
 passed_letter = []
+
+# Kontrola pevných mezer a vypíše string pro pole
 for p in range(len(main_word_letters_list)):
     if not p == '\xa0': 
         word_string.append('_')
