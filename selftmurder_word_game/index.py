@@ -1,6 +1,6 @@
 import os
 
-main_word = 'ahoj'
+main_word = 'ahhoj'
 main_word_letters_list = list(main_word)
 max_try = 5
 
@@ -49,6 +49,14 @@ while True:
                 passed_letter.append(my_letter)
                 used_letters.append(my_letter)
                 word_string[letter_index] = my_letter
+                # Hledá další písmena:
+                find_letters = 0
+                for m_w in range(len(main_word_letters_list)):
+                    if my_letter == main_word_letters_list[m_w]:
+                        word_string[m_w] = my_letter
+                        
+                
+
                 loop_letter_passed = True
     if loop_letter_passed == False:
         used_letters.append(my_letter)
