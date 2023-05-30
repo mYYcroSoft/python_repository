@@ -1,7 +1,12 @@
 import os
 
-main_word = 'ahhoj'
+main_word = 'ahhoooj jak je'
 main_word_letters_list = list(main_word)
+word_spaces = 0
+
+        
+
+print(word_spaces)
 max_try = 5
 
 
@@ -14,13 +19,29 @@ player_tryes = 0
 word_string = []
 passed_letter = []
 for p in range(len(main_word_letters_list)):
-    word_string.append('_')
+    if not p == '\xa0': 
+        word_string.append('_')
+    else:
+        word_string.append('\xa0')
+
+# Vyplní mezery:
+for x in range(len(main_word_letters_list)): 
+    if main_word_letters_list[x].isspace() == True:
+        word_spaces += 1 
+        word_string[x] = ' / '
+        passed_letter.append(' / ')
+        
+
+
+
 
 
 def print_stats():
+    print(len(passed_letter))
     print(f"Použitá písmena: {used_letters}")
     print(f"Pokusy: {player_tryes}/{max_try}")
     print(f'Písmena: {word_string}')
+
 
 
 while True:
@@ -46,14 +67,12 @@ while True:
         if loop_letter_passed == False:
             if my_letter == main_word_letters_list[letter_index]:
                 print("Správně:")
-                passed_letter.append(my_letter)
-                used_letters.append(my_letter)
-                word_string[letter_index] = my_letter
                 # Hledá další písmena:
                 find_letters = 0
                 for m_w in range(len(main_word_letters_list)):
                     if my_letter == main_word_letters_list[m_w]:
                         word_string[m_w] = my_letter
+                        passed_letter.append(my_letter)
                         
                 
 
