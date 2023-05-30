@@ -6,7 +6,7 @@ import time
 
 numbers_arr =  []
 
-numbers_number = 2000
+numbers_number = 5000
 
 
 for x in range(numbers_number):
