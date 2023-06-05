@@ -1,6 +1,6 @@
 let player_pos = [0,0]
 const player_speed = 10;
-let stone_pos = [100, 100]
+let stone_pos = []
 
 
 document.addEventListener('keydown', function(event) {
@@ -38,12 +38,22 @@ document.addEventListener('keydown', function(event) {
    
     } 
   });
+  function randomIntFromInterval(min, max) { // min and max included 
+    return Math.floor(Math.random() * (max - min + 1) + min)
+  }
+  
+
+  for (let i =0; i <= 5; i++) {
+    left = randomIntFromInterval(0,500)
+    top = randomIntFromInterval(0,500)
+    stone_pos.push([left, top])
+  }
 
 
 
-
-  $(".terrain").append
-(`
-<div id="stone" style="left: ${stone_pos[0]}px; right: ${stone_pos[1]}px"> STONE</div>
-`);
-
+/*
+  $('.stones').append(
+    `
+    <div id="stone" style="left: ${l}px; top: ${t}px;"><img src="stone.png" width="50"></div>
+    `
+  )*/
