@@ -1,25 +1,28 @@
 let player_pos = [0,0]
 const player_speed = 10;
-let stone_pos = []
+
+let props = []
 
 let player_inventory = []
 let inv_open = false
 
+generate_trees(25)
+generate_stones(25)
 
-async function remove_items(){
-  console.log("REMOVED")
-  const items = document.getElementsByClassName('inv_item')
-  
-  for(const x of items){
-    x.remove()
+
+
+function remove_items(){
+  const items_all = document.getElementsByClassName("inv_item");
+
+  while (items_all.length > 0) {
+    items_all[0].remove();
   }
-
 }
 function load_items(){
  
   remove_items()
   for(const item of player_inventory){
-    console.log("TEST")
+  
     $('.item-list').append(
       `
       <div class="inv_item" id="itm">
@@ -57,6 +60,14 @@ document.addEventListener('keydown', function(event) {
     player_inventory.push('Test')
     load_items()
     console.log(player_inventory)
+  } 
+
+  
+  if (event.key == 'r') {
+    // reagovat na stisknutí klávesy Enter
+
+
+    remove_items()
   } 
     if (event.key == 'd') {
       // reagovat na stisknutí klávesy Enter
@@ -106,26 +117,73 @@ document.addEventListener('keydown', function(event) {
         }
       }
     } 
+    
   });
-  function randomIntFromInterval(min, max) { // min and max included 
-    return Math.floor(Math.random() * (max - min + 1) + min)
+
+
+
+  function prop_interact(){
+    prop_class = document.getElementsByClassName("prop")
+
+    for(const prop of props){
+      radius_x = prevedZaporneNaKladne(prop[0] - player_pos[0])
+      radius_y = prevedZaporneNaKladne(prop[1] - player_pos[1])
+
+      if (radius_x < 20 && radius_y < 20){
+        console.log("AHOJ")
+      }
+    }
+
   }
   
 
-  for (let i =0; i <= 100; i++) {
-    left = randomIntFromInterval(0,1980);
-
-    kokot_top =  randomIntFromInterval(0,1980)
-    console.log(kokot_top)
-    stone_pos.push([left, kokot_top])
-     $('.stones').append(
-    `
-    <div id="stone" class="stone" style="left: ${left}px; top: ${kokot_top}px;"><img src="stone.png" width="50"></div>
-    `
-  )
+  function prevedZaporneNaKladne(cislo) {
+    if (cislo < 0) {
+      return -cislo;
+    } else {
+      return cislo;
+    }
   }
 
 
+
+ 
+  
+  
+function generate_trees(number){
+    for (let i =0; i <= number; i++) {
+      let  left = randomIntFromInterval(0,1980)
+      let  top_y =  randomIntFromInterval(0,1980)
+      props.push([left, top_y, 'tree'])
+       $('.stones').append(
+      `
+      <div id="prop" class="prop tree" style="left: ${left}px; top: ${top_y}px;"><img src="assets/tree.png" width="120"></div>
+      `
+    )
+    }
+  
+  }
+  
+  
+  function generate_stones(number){
+    for (let i =0; i <= number; i++) {
+      let left = randomIntFromInterval(0,1980);
+      let top_y =  randomIntFromInterval(0,1980)
+      props.push([left, top_y, 'stone'])
+       $('.stones').append(
+      `
+      <div id="prop" class="stone" style="left: ${left}px; top: ${top_y}px;"><img src="assets/stone.png" width="50"></div>
+      `
+    )
+    }
+  }
+  
+  
+  function randomIntFromInterval(min, max) { // min and max included 
+  return Math.floor(Math.random() * (max - min + 1) + min)
+  }
+ 
+  
 
 /*
   $('.stones').append(
