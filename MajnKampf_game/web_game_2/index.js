@@ -81,7 +81,7 @@ if(radius.x < 50 && radius.y < 50){
     for(const objectClass of document.getElementsByClassName("prop")){
         console.log(thisObject.x +`px`)
         console.log(objectClass.style.left)
-        if(thisObject.x +`px` == objectClass.style.left && thisObject.y + `px` == objectClass.style.top){
+        if(thisObject.x +`px` === objectClass.style.left && thisObject.y + `px` === objectClass.style.top){
             objectClass.remove()
         }
     }
