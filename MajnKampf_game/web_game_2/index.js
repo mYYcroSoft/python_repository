@@ -115,7 +115,7 @@ function draw_props_html(x,y,type){
 }
   
 function randomIntFromInterval(min, max) { // min and max included 
-    return Math.floor(Math.random() * (max - min + 1) + min)
+    return Math.floor(Math.random() * (max - min + 1) + min)    
     }
    
 
