@@ -24,7 +24,7 @@ print(keys_num)
 
 
 
-string = "Negr" 
+string = "Ahoj" 
 string_keys = list(string)
 
 
@@ -36,6 +36,8 @@ for word in string_keys:
 print(''.join(encrypted))
 print(len(encrypted))
 
+
+print(encrypted)
 decrypted = []
 
 for key_num in encrypted:
@@ -43,5 +45,6 @@ for key_num in encrypted:
     for word_id in range(len(keys_num)):
         if keys_num[word_id] == key_num:
             decrypted.append(keys[word_id])
+
 
 print(decrypted)

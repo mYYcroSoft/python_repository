@@ -79,9 +79,12 @@ if(radius.x < 50 && radius.y < 50){
     p("NEAR")
     const thisObject = generated_prop_list.find(({object }) => object === radius.id)
     for(const objectClass of document.getElementsByClassName("prop")){
-        console.log(thisObject.x +`px`)
-        console.log(objectClass.style.left)
+        /*console.log(thisObject.x +`px`)*/
+        /*console.log(objectClass.style.left)*/
         if(thisObject.x +`px` === objectClass.style.left && thisObject.y + `px` === objectClass.style.top){
+            p(`This | x: ${thisObject.x}px  y: ${thisObject.y}px`)
+            p(`Class | x: ${objectClass.style.left}  y: ${objectClass.style.top} `)
+            p(`Player | x ${player_pos[0]}px      y:     ${player_pos[1]}`)
             objectClass.remove()
         }
     }
@@ -90,11 +93,11 @@ if(radius.x < 50 && radius.y < 50){
 }
 })
 }
-/*--------------------------------------------------------------*/ 
+/*--------------------------------------------------------------*/   
 /*  Prop generator */
-const stone_count = 15
+const stone_count = 4
 function generate_stones(){
-    for(let i=0; i<=stone_count; i++){
+    for(let i=0; i<=stone_count; i++){  
         let stone_x = randomIntFromInterval(0,1980)
         let stone_y = randomIntFromInterval(0,800)
         let obj_id = randomIntFromInterval(1000,9999)
@@ -106,18 +109,23 @@ function generate_stones(){
 }
 function draw_props_html(x,y,type){
     generated_prop_list.forEach(object=>{
-        $('.map_props').append(` 
+        $('.map_props').append(`    
             <div class="prop" name="${object.name}" style="top: ${object.y}px; left: ${object.x}px">
             <div class="props_pos">x: ${object.x}px   y: ${object.y}px</div>
             <img src="assets/${object.image}" width="50"></div>
         `)
     });
 }
-  
+ 
+
+let random_numbers = [ 
+    [0,0,0],
+
+]
 function randomIntFromInterval(min, max) { // min and max included 
-    return Math.floor(Math.random() * (max - min + 1) + min)
-    }
-   
+    return   Math.floor(Math.random() * (max - min + 1) + min)
+    
+}  
 
 function p(t){
     console.log(`💻 [Console]     ${t}`)
