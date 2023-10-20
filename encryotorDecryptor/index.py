@@ -9,6 +9,8 @@ class rail:
 class crypth:
     pass
 
+
+
 class encrypt:
     string = ''
     number_of_rails = 0
@@ -51,10 +53,11 @@ class encryptRail:
     string = ''
     number_of_rails = 0
     rails = []
+    final_string = ''
     math = [0, 1, 2, 1, 0, 1, 2, 1, 0,1,2, 1, 2, 0, 1,2]
-
+    
     def __init__(self, string , number_of_rails = 3):
-         self.__string = string.replace(" ", "")
+         self.__string = string.replace(" ", "")    
          self.__number_of_rails = number_of_rails
          self.rails = [[] for _ in range(self.__number_of_rails)]
          
@@ -63,14 +66,18 @@ class encryptRail:
         for x in range(len(self.__string)):
             rail_index = self.math[x]
             self.rails[rail_index].append(string_list[x])
-        return self.rails
+        
+        for rail in self.rails:
+            for letter in rail:
+                self.final_string += letter
 
+        return self.final_string
         
     def __str__(self):
-        return f'Původní string: {self.__string} O 3 kolejnicích s výstupem: {self.rails}'
+        return f'Původní string: {self.__string} O 3 kolejnicích s výstupem: {self.final_string}'
 
 
-string = "AHOJ JAK JE"
+string = "TONAHRVOTAIOIT"
 
 encrypt_text = encryptRail(string)
 encrypt_text.encrypt()
