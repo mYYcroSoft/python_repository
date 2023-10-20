@@ -1,4 +1,4 @@
-string = "AHOJJAKJE"
+string = "AJEHJAJOK"
 math = [0, 1, 2, 1, 0, 1, 2, 1, 0,1,2, 1, 2, 0, 1,2]
 rails = [[], [], []]
 string_list = list(string)
