@@ -1,0 +1,124 @@
+    body{
+    background-color: #23a100;
+    padding: 0;
+    margin: 0
+    ;
+    overflow: hidden;
+}
+
+.road{
+    position: absolute;
+    display: block;
+    background-color: black;
+    height: 40%;
+    width: 100%;
+    top: 20%;
+}
+
+.road_lines{
+    position: absolute;
+
+    width: 100%;
+    height: 1px;
+    top: 35%;
+}
+
+.road_line{
+    background-color: #fff;
+    width: 5%;
+    height: 7px;
+    display: inline-block;
+    margin-left: 5%;
+}
+
+.vehicle{
+    position: relative;
+    background-color: red;
+    width: 15%;
+    height: 30%;
+    margin-top: 20px;
+    left: 100%;
+    margin-left: 50px;
+    animation: vehicle_move 3s linear infinite;
+}
+
+.front{
+    position: absolute;
+    background-color: red;
+    left: -15%;
+    height: 80px;
+    bottom: 0;
+    z-index: 2;
+}
+.rear{
+    position: absolute;
+    background-color: red;
+    left: 90%;
+    height: 80px;
+    bottom: 0;
+    z-index: 2;
+}
+
+.window{
+    position: absolute;
+    background-color: blue;
+    z-index: 3;
+    width: 30%;
+    top: 5%;
+    left: 5%;
+}
+
+.window2{
+    position: absolute;
+    background-color: blue;
+    z-index: 3;
+    width: 30%;
+    top: 5%;
+    left: 50%;
+}
+
+.wheel{
+    position: absolute;
+    background-color: #464646;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 4%;
+    bottom: -20%;
+    z-index: 5;
+    border-radius: 100%;
+    animation: wheel_rotate 0.8s linear infinite;
+    color: yellow;
+    text-align: center;
+    vertical-align: center;
+    font-size: 35px;
+}
+
+.wheel2{
+    position: absolute;
+    background-color: #464646;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 4%;
+    bottom: -20%;
+    z-index: 5;
+    left: 100%;
+    border-radius: 100%;
+    color: yellow;
+    text-align: center;
+    vertical-align: center;
+    font-size: 35px;
+             animation: wheel_rotate 0.8s linear infinite;
+}
+
+
+@keyframes wheel_rotate{
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+@keyframes vehicle_move{
+    0% {left:-50%;}
+    100% {right: 100%;}
+}
+

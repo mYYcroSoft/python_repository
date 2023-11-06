@@ -55,7 +55,7 @@ class company:
     def addGrade(self, name):
         id = random.randint(1,9999)
         if not id in self.__grades:
-            self.__grades[id] = grade(grade)
+            self.__grades[id] = grade(name)
     def removeGrade(self, id):
             if id in self.__grades:
                 del self.__grades[id] 
@@ -86,15 +86,6 @@ kokot.addBranch("picus", "kokot_picus", "kokot_a", 1)
 kokot.addWorker("Martin", "Junior")
 kokot.addWorker("Martin", "Junior")
 kokot.addWorker("Martin", "Junior")
-def print_branches():
-    test = kokot.getBranches()
-    for name, branch_instance in test.items():
-        print(f"Pobočka {name}: {branch_instance}")
-
-def print_workers():
-    test = kokot.getWrokers()
-    for id, worker in test.items():
-        print(f"Zaměstnanec {id}: {worker}")
 
 
 company_list = {}
@@ -141,6 +132,57 @@ while inputer == True:
         print("[4] Odstrant pozici")
         print("[5] Přidat zaměstnance")
         print("[6] Odstranit zaměstnance")
+        print("_______________________________")
+        print("[7] Zobrazit pobočky")
+        print("[8] Zobrazit zaměstnance")
+        print("[9] Zobrazit pozice")
+        print("_______________________________")
+        print("[10] Zpět do menu")
         task = int(input("Číslo akce: "))
 
+        if task == 1:
+            print("Přidat pobočku")
+            name = input("Jméno pobočky: ")
+            town = input("Město: ")
+            street = input("Ulice: ")
+            depNum = input("Číslo popisné: ")
+            company_list[selected_comapny].addBranch(name, town, street, depNum)
+        if task == 2:
+            print("Odstrant pobočku")
+            name = input("Jméno pobočky: ")
+            company_list[selected_comapny].removeBranch(name)
+        
+        if task == 3:
+            print("Přidat pozici")
+            name = input("Jméno pozice: ")
+            company_list[selected_comapny].addGrade(name)
+        if task == 4:
+            print("Odstrant pozici")
+            name = input("Jméno pozice: ")
+            company_list[selected_comapny].removeGrade(name)
+        if task == 5:
+            print("Přidat zaměstnance")
+            name = input("Jméno zaměstnance: ")
+            grade = input("Pozice: ")
+            company_list[selected_comapny].addWorker(name, grade)
+        
+        if task == 6:
+            print("Odstranit zaměstnance")
+            id = input("ID zaměstnance: ")
+            company_list[selected_comapny].removeWorker(id)
             
+        if task == 7:
+            print("Zobrazit pobočky")
+            for branch in company_list[selected_comapny].getBranches().items():
+                print(branch[1])
+        if task == 8:
+            print("Zobrazit zaměstnance")
+            for worker in company_list[selected_comapny].getWrokers().items():
+                print(worker[1])
+        if task == 9:
+            print("Zobrazit pozice")
+            for grade in company_list[selected_comapny].getGrades().items():
+                print(grade[1])
+        if task == 10:
+            state = "main_menu"
+            selected_comapny = 0
