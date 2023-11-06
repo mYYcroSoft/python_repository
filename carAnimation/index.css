@@ -44,7 +44,19 @@
     left: 100%;
     margin-left: 50px;
     border-radius: 5px 5px 0px 0px;
-    animation: vehicle_move 10s linear infinite;
+    animation: vehicle_move 3s linear infinite;
+   
+}
+.vehicle2{
+    position: relative;
+    background-color: var(--vehicle_color);  
+    width: 15%;
+    height: 30%;
+    margin-top: 100px;
+    left: 100%;
+    margin-left: 50px;
+    border-radius: 5px 5px 0px 0px;
+    animation: vehicle_move 5s linear infinite;
    
 }
 
