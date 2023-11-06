@@ -6,6 +6,10 @@
     overflow: hidden;
 }
 
+:root{
+    --vehicle_color: #cc3000;
+}
+
 .road{
     position: absolute;
     display: block;
@@ -33,35 +37,41 @@
 
 .vehicle{
     position: relative;
-    background-color: red;
+    background-color: var(--vehicle_color);  
     width: 15%;
     height: 30%;
     margin-top: 20px;
     left: 100%;
     margin-left: 50px;
-    animation: vehicle_move 3s linear infinite;
+    border-radius: 5px 5px 0px 0px;
+    animation: vehicle_move 10s linear infinite;
+   
 }
 
 .front{
     position: absolute;
-    background-color: red;
+    background-color: var(--vehicle_color); 
     left: -15%;
     height: 80px;
     bottom: 0;
     z-index: 2;
+    border-radius: 15px 0px 0px 0px;
 }
 .rear{
     position: absolute;
-    background-color: red;
+    background-color: var(--vehicle_color); 
     left: 90%;
     height: 80px;
     bottom: 0;
     z-index: 2;
+    border-radius: 0px 15px 0px 0px;
 }
 
 .window{
     position: absolute;
-    background-color: blue;
+    background-color: #0870a0;
+    border-radius: 5px;
+    border: solid silver 2px;
     z-index: 3;
     width: 30%;
     top: 5%;
@@ -70,7 +80,8 @@
 
 .window2{
     position: absolute;
-    background-color: blue;
+    background-color: #0870a0;
+    border: solid silver 2px;
     z-index: 3;
     width: 30%;
     top: 5%;
@@ -122,3 +133,28 @@
     100% {right: 100%;}
 }
 
+
+.wheel_line{
+    position: absolute;
+    background-color: #5a5858;
+    width: 10%;
+    height: 80%;
+    left: 45%;
+    top: 8%;
+    transform: rotate(var(--rotate));
+    color: #ffffff00;
+}
+
+.light{
+    position: absolute;
+    background-color: yellow;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    border-radius: 0px 50px 50px 0px;
+    box-shadow: #dbc500 50px 20px 80px 40px;
+    left: 128%;
+    top: 50%;
+    z-index: 6;
+    color: #ffffff00;
+}
