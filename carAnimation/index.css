@@ -7,6 +7,7 @@
 }
 
 :root{
+
     --vehicle_color: #cc3000;
 }
 
@@ -26,7 +27,7 @@
 }
 
 .road_lines{
-    position: absolute;
+    position: fixed;
 
     width: 100%;
     height: 1px;
@@ -86,7 +87,7 @@
 }
 
 .window{
-    position: absolute;
+    position: relative;
     background-color: #0870a0;
     border-radius: 5px;
     border: solid silver 2px;
@@ -97,13 +98,13 @@
 }
 
 .window2{
-    position: absolute;
+    position: relative;
     background-color: #0870a0;
-    border: solid silver 2px;
+    bo50rder: solid silver 2px;
     z-index: 3;
     width: 30%;
     top: 5%;
-    left: 50%;
+    left: 30%;
 }
 
 .wheel{
