@@ -84,7 +84,7 @@ company_list = {}
 inputer = True 
 state = "main_menu"
 selected_comapny = 0
-company_list[4569] = company("KOKOTI")
+
 
 while inputer == True:
     if state == "main_menu":
