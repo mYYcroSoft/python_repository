@@ -5,7 +5,7 @@ def error(text):
 
 class grade:
     def __init__(self, grade_name):
-        self.__name == grade_name
+        self.__name = grade_name
         
     
 
@@ -154,7 +154,7 @@ while inputer == True:
         
         if task == 3:
             print("Přidat pozici")
-            name = input("Jméno pozice: ")
+            name = str(input("Jméno pozice: "))
             company_list[selected_comapny].addGrade(name)
         if task == 4:
             print("Odstrant pozici")
