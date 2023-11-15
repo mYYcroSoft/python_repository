@@ -77,15 +77,7 @@ class company:
     
 
 
-kokot = company("curak")
-kokot.addBranch("kokot", "kokot_picus", "kokot_a", 1)
-kokot.addBranch("kar", "kokot_picus", "kokot_a", 1)
-kokot.addBranch("picus", "kokot_picus", "kokot_a", 1)
 
-
-kokot.addWorker("Martin", "Junior")
-kokot.addWorker("Martin", "Junior")
-kokot.addWorker("Martin", "Junior")
 
 
 company_list = {}
