@@ -1,6 +1,16 @@
 import pygame
+from pygame import mixer 
 import random
 import math
+
+class music:
+    def __init__(self) -> None:
+        mixer.init()    
+        mixer.music.load("music.mp3")    
+        mixer.music.set_volume(0.7) 
+        mixer.music.play() 
+
+  
 
 class Snowfall:
 
@@ -11,11 +21,35 @@ class Snowfall:
         self.clock = pygame.time.Clock()
         self.running = True
         self.screen = pygame.display.set_mode((1280, 720))
+        self.song = music()
+        self.random_char = chr(random.randint(65, 90))
+        self.font = pygame.font.Font(None, 36)
+        self.score = 0
+        self.gift_image = pygame.image.load("gift.png")
+        self.gift_rect = self.gift_image.get_rect()
+        self.gift_rect.topleft = (random.randrange(0, 1000), random.randrange(0, 500))
 
+        
+     
+ 
+    def game(self):
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    self.running = False
+                elif event.type == pygame.MOUSEBUTTONDOWN:
+                    print("A")
+                    if self.gift_rect.collidepoint(event.pos):
+                        self.gift_rect.topleft = (random.randrange(0, 1000), random.randrange(0, 720))
+                        self.score += 1
+          
+        
     def start(self):
         while self.running:
+            self.game()
             self.screen.fill((0, 0, 0))  
-            self.background = pygame.image.load("back.jpg")
+            self.background = pygame.image.load("back2.jpg")
+            self.background = pygame.transform.scale(self.background, (1280, 720))
+
             self.screen.blit(self.background, (0, 0))
 
             for event in pygame.event.get():
@@ -32,6 +66,8 @@ class Snowfall:
                 snowflake.calculate()
                 snowflake.draw()
 
+            self.screen.blit(self.gift_image, self.gift_rect.topleft)
+            pygame.transform.scale(self.gift_image, (50, 50))
             pygame.display.flip()
             self.clock.tick(60)
 
@@ -67,5 +103,6 @@ class Snowflake:
 
         self.y = self.y + self.speed
 
-snowfall = Snowfall()
-snowfall.start()
+if __name__ == "__main__":
+    snowfall = Snowfall()
+    snowfall.start()
