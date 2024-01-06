@@ -27,7 +27,7 @@ class Snowfall:
         self.score = 0
         self.gift_image = pygame.image.load("gift.png")
         self.gift_rect = self.gift_image.get_rect()
-        self.gift_rect.topleft = (random.randrange(0, 1000), random.randrange(0, 500))
+        self.gift_rect.topleft = (random.randrange(0, 300), random.randrange(0, 300))
 
         
      
@@ -39,11 +39,11 @@ class Snowfall:
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     print("A")
                     if self.gift_rect.collidepoint(event.pos):
-                        self.gift_rect.topleft = (random.randrange(0, 1000), random.randrange(0, 720))
+                        self.gift_rect.topleft = (random.randrange(0, 800), random.randrange(0, 800))
                         self.score += 1
           
         
-    def start(self):
+    def start(self):    
         while self.running:
             self.game()
             self.screen.fill((0, 0, 0))  
